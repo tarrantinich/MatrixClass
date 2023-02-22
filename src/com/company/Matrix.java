@@ -21,36 +21,20 @@ public class Matrix {
         this.matrix = matrix1;
     }
 
-    protected Matrix(int[][] matrix) {
-        this.matrix = matrix;
-    }
-
     public int[][] getMatrix() {
         return matrix;
-    }
-
-    public int getNumberOfLines() {
-        return numberOfLines;
-    }
-
-    public int getNumberOfColumns() {
-        return numberOfColumns;
     }
 
     public void setMatrix(int[][] matrix) {
         this.matrix = matrix;
     }
 
-    public void setNumberOfLines(int numberOfLines) {
-        this.numberOfLines = numberOfLines;
-    }
-
-    public void setNumberOfColumns(int numberOfColumns) {
-        this.numberOfColumns = numberOfColumns;
-    }
-
     public void summ(Matrix myMatrix) {
         System.out.println("Сумма матриц:");
+        if (numberOfColumns != myMatrix.numberOfColumns || numberOfLines != myMatrix.numberOfLines) {
+            System.out.format("Сложение невозможно - у матриц разная размерность");
+            return;
+        }
         int summMatrix[][] = new int[numberOfColumns][numberOfLines];
         for (int i = 0; i < numberOfColumns; i++) {
             for (int j = 0; j < numberOfLines; j++) {
